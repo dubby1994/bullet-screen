@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Speak your heart to the world</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/stomp.umd.min.js"></script>
+    <script src="/js/app_table.js"></script>
+
+    <style>
+        /* 右下角悬浮按钮 */
+        #floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1050; /* 高于普通元素 */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+        }
+
+        /* 模态框自定义宽度 */
+        .modal-dialog-centered {
+            max-width: 600px; /* 你可以调整宽度 */
+        }
+    </style>
+</head>
+<body>
+
+<noscript>
+    <h2 style="color: #ff0000">
+        Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+        enabled. Please enable
+        Javascript and reload this page!
+    </h2>
+</noscript>
+
+<div id="main-content" class="container">
+    <div class="row" style="height: 95vh;">
+        <div class="col-12">
+            <table id="conversation" class="table table-striped">
+                <colgroup>
+                    <col style="width: 20%">
+                    <col style="width: 80%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>time</th>
+                    <th>bullet</th>
+                </tr>
+                </thead>
+                <tbody id="bulletList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框 -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+            <h5 class="modal-title mb-3">Speak your heart to the world</h5>
+            <textarea id="bulletInput" class="form-control mb-3" rows="5"></textarea>
+            <button id="send" class="btn btn-primary w-100">send</button>
+        </div>
+    </div>
+</div>
+
+<!-- 悬浮按钮 -->
+<button id="floating-btn" class="btn btn-primary">
+    +
+</button>
+
+</body>
+</html>
