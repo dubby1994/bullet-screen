@@ -28,7 +28,7 @@ public class AutoPushMsgTask {
 
     @PostConstruct
     public void init() {
-        scheduledExecutorService.scheduleAtFixedRate(this::pushMsg, 0, 1000, TimeUnit.MILLISECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(this::pushMsg, 0, 30, TimeUnit.SECONDS);
     }
 
     private void pushMsg() {
