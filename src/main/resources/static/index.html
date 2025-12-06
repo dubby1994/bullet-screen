@@ -23,14 +23,6 @@
             overflow: hidden;
         }
 
-        /*.barrage {*/
-        /*    position: absolute;*/
-        /*    white-space: nowrap;*/
-        /*    font-size: 20px;*/
-        /*    font-weight: bold;*/
-        /*    animation: moveLeft linear;*/
-        /*}*/
-
         .barrage {
             position: absolute;
             white-space: nowrap;
@@ -40,15 +32,6 @@
             animation-timing-function: linear;
             animation-fill-mode: forwards; /* 保持动画结束状态 */
         }
-
-        /*@keyframes moveLeft {*/
-        /*    from {*/
-        /*        transform: translateX(100%);*/
-        /*    }*/
-        /*    to {*/
-        /*        transform: translateX(-100%);*/
-        /*    }*/
-        /*}*/
 
         @keyframes moveLeft {
             0% {
@@ -84,12 +67,40 @@
             cursor: pointer;
         }
     </style>
+
+    <!-- Clarity tracking code for https://xuehaiwuya.site/ -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "p5gfaujpz2");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJD4DVG6ST"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-QJD4DVG6ST');
+    </script>
 </head>
 <body>
 <div id="barrage-container"></div>
 
 <div id="inputBox">
-    <input type="text" id="bulletInput" placeholder="Say what you want to say" />
+    <input type="text" id="bulletInput" placeholder="Say what you want to say"/>
     <button id="sendBtn">send</button>
 </div>
 
