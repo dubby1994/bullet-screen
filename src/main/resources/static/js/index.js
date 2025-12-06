@@ -81,7 +81,7 @@ $(function () {
     stompClient.activate();
 
     const container = document.getElementById('barrage-container');
-    const input = document.getElementById('barrageInput');
+    const input = document.getElementById('bulletInput');
     const sendBtn = document.getElementById('sendBtn');
 
     sendBtn.addEventListener('click', () => {
@@ -91,4 +91,15 @@ $(function () {
             input.value = '';
         }
     });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            const text = input.value.trim();
+            if (text) {
+                sendBullet();
+                input.value = '';
+            }
+        }
+    });
+
 });

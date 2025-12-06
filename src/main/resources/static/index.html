@@ -23,20 +23,39 @@
             overflow: hidden;
         }
 
+        /*.barrage {*/
+        /*    position: absolute;*/
+        /*    white-space: nowrap;*/
+        /*    font-size: 20px;*/
+        /*    font-weight: bold;*/
+        /*    animation: moveLeft linear;*/
+        /*}*/
+
         .barrage {
             position: absolute;
             white-space: nowrap;
             font-size: 20px;
             font-weight: bold;
-            animation: moveLeft linear;
+            animation-name: moveLeft;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards; /* 保持动画结束状态 */
         }
 
+        /*@keyframes moveLeft {*/
+        /*    from {*/
+        /*        transform: translateX(100%);*/
+        /*    }*/
+        /*    to {*/
+        /*        transform: translateX(-100%);*/
+        /*    }*/
+        /*}*/
+
         @keyframes moveLeft {
-            from {
-                transform: translateX(100%);
+            0% {
+                transform: translateX(100vw); /* 屏幕最右侧外开始 */
             }
-            to {
-                transform: translateX(-100%);
+            100% {
+                transform: translateX(-100%); /* 移动到屏幕左边外 */
             }
         }
 
