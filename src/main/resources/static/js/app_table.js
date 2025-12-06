@@ -1,5 +1,13 @@
+// 获取当前页面的协议、域名和端口
+const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const domain = window.location.hostname;
+const port = window.location.port ? `:${window.location.port}` : '';
+
+// 构建 WebSocket URL
+const wsUrl = `${protocol}//${domain}${port}/ws/all`;
+
 const stompClient = new StompJs.Client({
-    brokerURL: 'wss://xuehaiwuya.site/ws/all',
+    brokerURL: wsUrl,
 
     // 关键的重连配置
     // 设置重连延迟（单位：毫秒），0 表示不自动重连
