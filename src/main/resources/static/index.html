@@ -42,29 +42,40 @@
             }
         }
 
+        /*#inputBox {*/
+        /*    position: absolute;*/
+        /*    bottom: 20px;*/
+        /*    left: 50%;*/
+        /*    transform: translateX(-50%);*/
+        /*    display: flex;*/
+        /*}*/
+
         #inputBox {
-            position: absolute;
+            position: fixed; /* 改为 fixed，跟随视口 */
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
+            z-index: 9999; /* 确保在最上层 */
         }
 
         #inputBox input {
-            width: 300px;
+            width: 600px;
             padding: 8px;
             border-radius: 4px;
             border: none;
+            font-size: xxx-large;
         }
 
         #inputBox button {
             margin-left: 8px;
             padding: 8px 16px;
             border: none;
-            background: #ff4081;
+            background: green;
             color: #fff;
             border-radius: 4px;
             cursor: pointer;
+            font-size: xxx-large;
         }
     </style>
 
