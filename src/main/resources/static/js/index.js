@@ -65,9 +65,9 @@ function showBullet(text) {
     div.style.animationDuration = `${duration}s`;
 
     // 随机颜色
-    // div.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    div.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
     // 白色
-    div.style.color = `#ffffff`;
+    // div.style.color = `#ffffff`;
 
     container.appendChild(div);
 

@@ -9,6 +9,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -17,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class AutoPushMsgTask {
 
+    private static final String DATE_FORMAT = "yyyy-MM-dd hh:mm:ss";
+
     @Resource
     private SimpMessagingTemplate simpMessagingTemplate;
 
@@ -24,14 +28,17 @@ public class AutoPushMsgTask {
 
     @PostConstruct
     public void init() {
-        scheduledExecutorService.scheduleAtFixedRate(this::pushMsg, 0, 100, TimeUnit.MILLISECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(this::pushMsg, 0, 1000, TimeUnit.MILLISECONDS);
     }
 
     private void pushMsg() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
+        String time = simpleDateFormat.format(new Date());
+
         BulletMsg msg = new BulletMsg();
         msg.setAuthor(UUID.randomUUID().toString());
         msg.setTime(System.currentTimeMillis());
-        msg.setContent(RandomStringUtils.secure().nextAlphanumeric(10, 100));
+        msg.setContent("The current time is " + time);
 
         simpMessagingTemplate.convertAndSend(WebSocketConfig.TOPIC, msg);
     }
