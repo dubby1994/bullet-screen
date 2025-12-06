@@ -26,19 +26,24 @@ public class AutoPushMsgTask {
 
     @PostConstruct
     public void init() {
-        scheduledExecutorService.scheduleAtFixedRate(this::pushMsg, 0, 30, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(this::pushMsgForTime, 0, 30, TimeUnit.SECONDS);
     }
 
-    private void pushMsg() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
-        String time = simpleDateFormat.format(new Date());
-
+    public void pushMsg(String text) {
         BulletMsg msg = new BulletMsg();
         msg.setAuthor(UUID.randomUUID().toString());
         msg.setTime(System.currentTimeMillis());
-        msg.setContent("The current time is " + time);
+        msg.setContent(text);
 
         simpMessagingTemplate.convertAndSend(WebSocketConfig.TOPIC, msg);
+    }
+
+    private void pushMsgForTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
+        String time = simpleDateFormat.format(new Date());
+        String text = "The current time is " + time;
+
+        pushMsg(text);
     }
 
 }
