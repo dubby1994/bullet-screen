@@ -3,7 +3,7 @@ const containerHeight = window.innerHeight;
 const trackHeight = containerHeight / maxTracks;
 
 const stompClient = new StompJs.Client({
-    brokerURL: 'ws://localhost:9090/gs-guide-websocket',
+    brokerURL: 'wss://xuehaiwuya.site/gs-guide-websocket',
 
     // 关键的重连配置
     // 设置重连延迟（单位：毫秒），0 表示不自动重连
