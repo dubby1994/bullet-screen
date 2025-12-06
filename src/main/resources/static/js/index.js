@@ -61,7 +61,7 @@ function showBullet(text) {
     // 随机速度
     // const duration = Math.random() * 5 + 5; // 5~10秒
     // 10秒
-    const duration = 10;
+    const duration = 20;
     div.style.animationDuration = `${duration}s`;
 
     // 随机颜色

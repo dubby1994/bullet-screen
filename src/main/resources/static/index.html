@@ -6,6 +6,7 @@
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/stomp.umd.min.js"></script>
     <script src="/js/index.js"></script>
+    <link rel="icon" href="/favicon.jpg" type="image/jpg">
     <style>
         body {
             background: #000;
@@ -31,6 +32,12 @@
             animation-name: moveLeft;
             animation-timing-function: linear;
             animation-fill-mode: forwards; /* 保持动画结束状态 */
+            animation-play-state: running;
+        }
+
+        /* 鼠标悬停暂停动画 */
+        .barrage:hover {
+            animation-play-state: paused;
         }
 
         @keyframes moveLeft {
